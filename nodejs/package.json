@@ -1,0 +1,16 @@
+{
+  "name": "siri_wave_screen",
+  "version": "1.0.0",
+  "description": "siri wave screen application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": "https://github.com/byeongkyu/siri_wave_screen",
+  "author": "Byeong-Kyu Ahn",
+  "license": "ISC",
+  "dependencies": {
+    "roslib": "^1.0.1"
+  }
+}

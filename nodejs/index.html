@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Siri Wave Screen</title>
+        <script src="siriwave.js"></script>
+        <script src="roslib.js"></script>
+        <script src="eventemitter2.js"></script>
+
+        <style>
+            body {
+                background-color: #000;
+            }
+            #siri-container {
+                width: 900px;
+                height: 700px;
+                background-size: cover;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="siri-container"></div>
+        <script>
+            require('roslib')
+
+            var siriWave = new SiriWave({
+                container: document.getElementById('siri-container'),
+                style: "ios9",
+                amplitude: 0.2,
+                speed: 0.25,
+                autostart: true,
+            });
+
+            var ros = new ROSLIB.Ros({
+                url : 'ws://localhost:9090'
+            });
+
+            ros.on('connection', function() {
+                console.log('Connected to websocket server.');
+            });
+
+            ros.on('error', function(error) {
+                console.log('Error connecting to websocket server: ', error);
+            });
+
+            ros.on('close', function() {
+                console.log('Connection to websocket server closed.');
+            });
+
+            var listener = new ROSLIB.Topic({
+                ros : ros,
+                name : 'siri_wave_frequency',
+                messageType : 'std_msgs/Float64'
+            });
+
+            listener.subscribe(function(message) {
+                siriWave.setAmplitude(message.data);
+            });
+        </script>
+    </body>
+</html>
