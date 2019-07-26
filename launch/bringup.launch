@@ -1,0 +1,4 @@
+<launch>
+    <node name="siri_wave_gui" type="siri_wave_bringup" pkg="siri_wave_screen" output="screen" required="true"/>
+    <node name="siri_freq_gen" type="lipsync2freq_node.py" pkg="siri_wave_screen" output="screen"/>
+</launch>

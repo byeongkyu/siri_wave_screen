@@ -38,6 +38,10 @@
                 autostart: true,
             });
 
+            document.getElementById('siri-container').addEventListener('dblclick', function(e) {
+                window.close();
+            })
+
             var ros = new ROSLIB.Ros({
                 url : 'ws://localhost:9090'
             });
