@@ -4,7 +4,7 @@
 import rospy
 from std_msgs.msg import Float64, String
 
-VOWELS_FREQ = {'@': 0.2, 'a': 2.0, 'e': 1.0, 'E': 0.5, 'i': 0.6, 'o': 1.2, 'O': 1.4, 'u': 0.8, 'N': 0.2}
+VOWELS_FREQ = {'@': 0.2, 'a': 2.2, 'e': 1.2, 'E': 0.8, 'i': 0.4, 'o': 1.2, 'O': 1.6, 'u': 1.0, 'N': 0.2}
 
 class LipSync2FreqNode:
     def __init__(self):
