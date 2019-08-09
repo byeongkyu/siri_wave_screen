@@ -1,2 +1,2 @@
 #!/bin/bash
-bash -c "source /opt/ros/kinetic/setup.bash; source ~/catkin_ws/devel/setup.bash; roscd siri_wave_screen/nodejs; npm start"
+bash -c "source /opt/ros/$ROS_DISTRO/setup.bash; source ~/catkin_ws/devel/setup.bash; roscd siri_wave_screen/nodejs; npm start"
